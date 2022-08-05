@@ -35,21 +35,29 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log(`About to generate a password with the following:
-    Include Letters : ${this.includeLettes}
-    Include Numbers : ${this.includeNumbers}
-    Include Symbols : ${this.includeSymbols}
-    `);
-    this.password = 'Hello';
+    //process to create a random password
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    const symbols = '!@#£$%^&*()?';
+
+    let validCharacter = '';
+    if (this.includeLettes) {
+      validCharacter += letters;
+    }
+
+    if (this.includeNumbers) {
+      validCharacter += numbers;
+    }
+
+    if (this.includeSymbols) {
+      validCharacter += symbols;
+    }
+
+    let generatedPassword = '';
+    for (let i = 0; i < this.length; i++) {
+      const index = Math.floor(Math.random() * validCharacter.length);
+      generatedPassword += validCharacter[index];
+    }
+    this.password = generatedPassword;
   }
-
-  //we can pass the function as well to get the value on event handler
-  // getPassword() {
-  //   return this.password;
-  // }
-
-  //use string interplotion for a method as well
-  // getName() {
-  //   return 'Vrunda';
-  // }
 }

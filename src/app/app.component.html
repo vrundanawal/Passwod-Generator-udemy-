@@ -2,7 +2,10 @@
 
 <div>
   <label for="">Enter Length</label>
-  <input type="text" />
+  <!-- handle the input text -->
+  <input (input)="onChangeLength((length = $any($event.target).value))" />
+  <!--error for this code...top one is approch if object value is null-->
+  <!-- <input (input)="onChangeLength($event.target.value)" /> -->
 </div>
 
 <div>

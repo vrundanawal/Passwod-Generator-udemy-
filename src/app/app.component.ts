@@ -6,13 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'password-generator';
+  length = 0;
   password = '';
   includeLettes = false;
   includeNumbers = false;
   includeSymbols = false;
 
   //define the methods to handle events on DOM
+  // handle the input text
+  onChangeLength(value: string) {
+    //convert number into string
+    const parsedValue = parseInt(value);
+    //check the condition or validation to see it's number or not
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+    }
+  }
   onChangeUseLetters() {
     this.includeLettes = !this.includeLettes;
   }

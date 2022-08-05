@@ -38,7 +38,7 @@ export class AppComponent {
     //process to create a random password
     const numbers = '1234567890';
     const letters = 'abcdefghijklmnopqrstuvwxyz';
-    const symbols = '!@#£$%^&*()?';
+    const symbols = '!@#£$%^&*()?<>+-/';
 
     let validCharacter = '';
     if (this.includeLettes) {
